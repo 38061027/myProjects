@@ -1,0 +1,17 @@
+.header{
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:10px;
+    align-items: center;
+}
+
+#menu{
+    font-size: xx-large;
+    cursor: pointer;
+}
+#menu:hover{
+   color: gray;
+   transition: 0.5s;
+}
