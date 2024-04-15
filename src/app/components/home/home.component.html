@@ -5,10 +5,12 @@
     </header>
     <div class="menu-lateral">
         <div class="menu-header">
-            <h3>Projetos</h3>
-            <span class="material-symbols-outlined">
-                add
-            </span>
+            <h2>Projetos</h2>
+                <ol>
+                    <li>
+                      <button class="material-symbols-outlined" mat-raised-button (click)="openDialog()">add</button>
+                    </li>
+                  </ol>
         </div>
         <ul class="menu-items-content" *ngFor="let project of projects">
             <li>{{project.title}}</li>

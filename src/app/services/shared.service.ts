@@ -17,5 +17,8 @@ export class SharedService {
    return this.http.get<any[]>(this.url)
   }
 
+  sendProject(project:any):Observable<any>{
+   return this.http.post<any>(this.url, project)
+  }
 
 }
