@@ -21,4 +21,8 @@ export class SharedService {
    return this.http.post<any>(this.url, project)
   }
 
+  removeProject(id:number){
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
 }

@@ -48,3 +48,13 @@ li{
     display: block;
     
 }
+
+
+.menu-items-content{
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
+}

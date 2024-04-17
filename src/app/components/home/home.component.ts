@@ -1,13 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose,
+  MatDialog
 } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
@@ -26,49 +20,53 @@ export interface DialogData {
 
 
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   title!: string;
 
 
-  projects:any[] = []
+  projects: any[] = []
 
   constructor(private service: SharedService,
-    public dialog: MatDialog  ){}
+    public dialog: MatDialog) { }
 
-  menuShow(){
+  menuShow() {
     let menu = document.querySelector('.menu-lateral')
-    if(menu?.classList.contains('open')){
+    if (menu?.classList.contains('open')) {
       menu.classList.remove('open')
-    }else{
+    } else {
       menu?.classList.add('open')
     }
   }
 
 
   ngOnInit(): void {
-   this.service.getProjects().subscribe(res => this.projects = res)
-    this.service.sendProject(this.title)
+  
+    this.getProjects()
   }
 
-  
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      data: { title: this.title},
+      data: { title: this.title },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.title = result;
-      if(result){
-        this.service.sendProject({title:result}).subscribe()
+      if (result) {
+        this.service.sendProject({ title: result }).subscribe(()=>this.getProjects())
       }
     });
+  }
 
-    
+  getProjects(){
+    return this.service.getProjects().subscribe(res => this.projects = res)
   }
 
 
+  removeProject(id:number){
+    this.service.removeProject(id).subscribe(()=>this.getProjects())
+  }
 
 
 }

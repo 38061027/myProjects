@@ -8,12 +8,15 @@
             <h2>Projetos</h2>
                 <ol>
                     <li>
-                      <button class="material-symbols-outlined" mat-raised-button (click)="openDialog()">add</button>
+                      <button class="material-symbols-outlined"  (click)="openDialog()">add</button>
                     </li>
                   </ol>
         </div>
         <ul class="menu-items-content" *ngFor="let project of projects">
-            <li>{{project.title}}</li>
+            <h3>{{project.title}}</h3>
+            <span class="material-symbols-outlined" (click)="removeProject(project.id)">
+                remove
+                </span>
         </ul>
     </div>
 </div>
