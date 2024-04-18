@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
 
   title!: string;
 
+  date: any = new Date()
+
 
   projects: any[] = []
 
@@ -41,7 +43,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-  
+
     this.getProjects()
   }
 
@@ -51,21 +53,26 @@ export class HomeComponent implements OnInit {
       data: { title: this.title },
     });
 
+    let newDate = String(this.date.getDate()).padStart(2, '0') + '/' + String(this.date.getMonth() + 1).padStart(2, '0') + '/' + String(this.date.getFullYear())
+
+    let newHour = String(this.date.getHours()) + ':' + String(this.date.getMinutes())
+
     dialogRef.afterClosed().subscribe(result => {
       this.title = result;
       if (result) {
-        this.service.sendProject({ title: result }).subscribe(()=>this.getProjects())
+        this.service.sendProject({ title: result, date: newDate, hour:newHour, description:'' }).subscribe(() => this.getProjects())
       }
     });
   }
 
-  getProjects(){
+  getProjects() {
+    
     return this.service.getProjects().subscribe(res => this.projects = res)
   }
 
 
-  removeProject(id:number){
-    this.service.removeProject(id).subscribe(()=>this.getProjects())
+  removeProject(id: string) {
+    this.service.removeProject(id).subscribe(() => this.getProjects())
   }
 
 

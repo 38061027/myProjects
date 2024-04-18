@@ -10,7 +10,16 @@ export class SharedService {
 
   url = 'http://localhost:3000/projetos'
 
-  constructor(private http: HttpClient) { }
+  lastId : number = 0
+
+  constructor(private http: HttpClient) { 
+    this.getProjects().subscribe(projects => {
+      if (projects.length > 0) {
+        const lastProject = projects[projects.length - 1];
+        this.lastId = parseInt(lastProject.id); 
+      }
+    });
+  }
 
 
   getProjects():Observable<any[]>{
@@ -18,10 +27,13 @@ export class SharedService {
   }
 
   sendProject(project:any):Observable<any>{
+    this.lastId++;
+    project.id = this.lastId.toString();
+
    return this.http.post<any>(this.url, project)
   }
 
-  removeProject(id:number){
+  removeProject(id:string){
     return this.http.delete(`${this.url}/${id}`);
   }
 
