@@ -30,6 +30,8 @@
     width: 300px;
     height: 100%;
     padding: 10px;
+    animation-name: animacao;
+    animation-duration: 1s;
 }
 
 li{
@@ -57,4 +59,10 @@ li{
     align-items: center;
     padding: 5px;
     margin: 10px;
+}
+
+
+@keyframes animacao{
+    from{width: 0px;}
+    to{width: 300px;}
 }
