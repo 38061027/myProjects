@@ -2,6 +2,7 @@
 .container{
     height: 100vh;
     width: 100%;
+
 }
 
 .header{
@@ -65,3 +66,16 @@ li{
     from{width: 0px;}
     to{width: 300px;}
 }
+
+.box{
+    display: flex;
+    height:100vh;
+}
+
+.notes-content{
+    border: 1px solid blue;
+    flex-grow:1 ;
+    padding: 20px;
+
+}
+

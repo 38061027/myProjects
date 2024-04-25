@@ -3,16 +3,26 @@
     {
       "id": "1",
       "title": "projeto1",
-      "description": "dsdadasdasdas",
       "date": "12/06/2023",
-      "Hour": "6:30"
+      "hour": "6:30",
+      "task": [
+        {
+          "task-title": "",
+          "description": "sdasda"
+        }
+      ]
     },
     {
-      "id": "2",
-      "title": "projeto 2",
-      "date": "18/04/2024",
-      "hour": "16:44",
-      "description": ""
+      "id": "3",
+      "title": "projeto2",
+      "date": "25/04/2024",
+      "hour": "15:8",
+      "task": [
+        {
+          "task-title": "",
+          "description": ""
+        }
+      ]
     }
   ]
 }

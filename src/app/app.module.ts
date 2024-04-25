@@ -8,13 +8,17 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http'
 import { MaterialModule } from './material/material.module';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { NotesComponent } from './components/notes/notes.component';
+import { TaskNoteComponent } from './components/task-note/task-note.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DialogComponent
+    DialogComponent,
+    NotesComponent,
+    TaskNoteComponent
   ],
   imports: [
     BrowserModule,

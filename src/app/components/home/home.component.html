@@ -3,20 +3,35 @@
         <h1>Lista De Projetos</h1>
         <span class="material-symbols-outlined" id="menu" (click)="menuShow()">menu</span>
     </header>
-    <div class="menu-lateral">
-        <div class="menu-header">
-            <h2>Projetos</h2>
+
+    <div class="box">
+        <div class="menu-lateral">
+            <div class="menu-header">
+                <h2>Projetos</h2>
                 <ol>
                     <li>
-                      <button class="material-symbols-outlined"  (click)="openDialog()">add</button>
+                        <button class="material-symbols-outlined" (click)="openDialog()">add</button>
                     </li>
-                  </ol>
-        </div>
-        <ul class="menu-items-content" *ngFor="let project of projects">
-            <h3>{{project.title}}</h3>
-            <span class="material-symbols-outlined" (click)="removeProject(project.id)">
-                remove
+                </ol>
+            </div>
+            <ul  class="menu-items-content" *ngFor="let project of projects" [routerLink]="['',project.id]">
+                <h3>{{project.title}}</h3>
+                <span class="material-symbols-outlined" (click)="removeProject(project.id)">
+                    remove
                 </span>
-        </ul>
+            </ul>
+
+
+        </div>
+
+        <div class="notes-content">
+            <app-notes></app-notes>
+            <button class="material-symbols-outlined" (click)="openDialognote()">
+                add
+            </button>
+        </div>
+
+
     </div>
+
 </div>
