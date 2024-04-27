@@ -11,17 +11,21 @@ export class NotesComponent implements OnInit{
 
  project!:any[]
 
+ id!:string
+
   constructor(private route : ActivatedRoute,
     private service: SharedService
   ){}
 ngOnInit(): void {
   this.route.params.subscribe(params => {
     const projectId = params['id']; 
+    this.id= projectId
     this.service.getProjects().subscribe(res => {
   
       const project = res.filter(project => project.id == projectId);
       this.project = project; 
-      console.log(project)
+
+      
     });
   });
 }

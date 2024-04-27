@@ -5,12 +5,11 @@
     
     <mat-form-field>
         <mat-label>Tarefa</mat-label>
-        <input matInput [(ngModel)]="data.title">
-      <input matInput [(ngModel)]="data.description">
+        <input matInput [(ngModel)]="title">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="data.description">
+      <input matInput [(ngModel)]="description">
     </mat-form-field>
 </div>
 
@@ -18,5 +17,5 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial (click)="updateProject()">Ok</button>
 </mat-dialog-actions>

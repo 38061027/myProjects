@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,9 @@ export class SharedService {
 
   // notas de dentro do projeto especifico
 
+  updateProject(project: any, id:string): Observable<any> {
+    return this.http.put<any>(`${this.url}/${id}`, project)
+  }
+  
 
 }
