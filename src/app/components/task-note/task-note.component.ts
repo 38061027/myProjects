@@ -37,7 +37,7 @@ export class TaskNoteComponent {
 
   updateProject() {
 
-    const projectId = '3';
+    const projectId = '1';
     console.log(projectId)
 
     this.service.getProjects().subscribe(res => {
