@@ -48,7 +48,8 @@ li{
 
 .open{
     display: block;
-    background-color: rgb(222, 120, 30);
+    background-color: rgb(84, 71, 59);
+    animation-name: animacao;
 }
 
 
@@ -84,7 +85,6 @@ li{
 
 
 #add-btn{
-    position: absolute;
     right: 20px;
     bottom: 20px;
     background-color: rgb(0, 119, 255);
@@ -92,4 +92,5 @@ li{
     border-radius: 50%;
     font-size: xx-large;
     padding: 10px;
+    position: fixed;
 }

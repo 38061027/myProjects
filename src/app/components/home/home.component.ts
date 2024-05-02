@@ -4,10 +4,8 @@ import {
   MatDialog
 } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
 import { TaskNoteComponent } from '../task-note/task-note.component';
-
+import { ActivatedRoute } from '@angular/router';
 
 export interface DialogData {
   title: string;
@@ -28,16 +26,16 @@ export class HomeComponent implements OnInit {
   title!: string;
   date: any = new Date()
 
-  id:any
+  id: any
 
-  project : any[] = []
+  project: any[] = []
 
   projects: any[] = []
-  
+
 
   constructor(private service: SharedService,
     public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute
+    private route: ActivatedRoute
   ) { }
 
   menuShow() {
@@ -51,11 +49,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-   
     this.getProjects()
-   
-
-
   }
 
 
@@ -71,29 +65,32 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.title = result;
       if (result) {
-        this.service.sendProject({ title: result, date: newDate, hour: newHour, task: [{ "task-title": "",
-        "description": ""}] }).subscribe(() => this.getProjects())
+        this.service.sendProject({
+          title: result, date: newDate, hour: newHour, task: [{
+            "task-title": "",
+            "description": ""
+          }]
+        }).subscribe(() => this.getProjects())
       }
     });
   }
 
 
-  
+
   openDialognote(): void {
     const dialogRef = this.dialog.open(TaskNoteComponent, {
-      data: { title: this.title},
+      data: { title: this.title },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.title = result;
-      if(result){
-        this.service.sendProject({title:result}).subscribe()
+      if (result) {
+        this.service.sendProject({ title: result }).subscribe()
       }
     });
   }
 
- 
+
 
   getProjects() {
 
