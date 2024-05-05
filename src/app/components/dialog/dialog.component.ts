@@ -3,7 +3,6 @@ import {
   MAT_DIALOG_DATA,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { DialogData } from '../home/home.component';
 
 @Component({
   selector: 'app-dialog',
@@ -13,7 +12,7 @@ import { DialogData } from '../home/home.component';
 export class DialogComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
 
   onNoClick(): void {

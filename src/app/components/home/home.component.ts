@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.title = result;
       if (result) {
-        this.service.sendProject({ title: result }).subscribe()
+        this.service.sendProject({ title: result })
       }
     });
   }
