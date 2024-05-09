@@ -1,3 +1,4 @@
+
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
@@ -21,13 +22,15 @@ export class NotesComponent implements OnInit {
       const projectId = params['id'];
       this.id = projectId
       this.service.getProjects().subscribe(res => {
-
         const project = res.filter(project => project.id == projectId);
         this.project = project;
 
       });
     });
   }
+
+
+
 
 }
 

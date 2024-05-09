@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
       if (result) {
         this.service.sendProject({
           title: result, date: newDate, hour: newHour, task: [{
-            "task-title": "",
+            "tasktitle": "",
             "description": ""
           }]
         }).subscribe(() => this.getProjects())

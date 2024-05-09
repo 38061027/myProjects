@@ -1,9 +1,18 @@
 
 
-<div class="content-notes" *ngFor="let item of project">
-    <p>{{item.title}}</p>
-    <p>{{item.date}}</p>
-    <p>{{item.hour}}</p>
-</div>
+    
+    <div class="content-notes" *ngFor="let item of project">
+            <p *ngIf="item.task.tasktitle"> {{item.title}} - {{item.task.tasktitle}} </p>
+            <p *ngIf="!item.task.tasktitle">{{item.title}} - Sem titulo</p>
+            <p>{{item.date}}</p>
+            <p>{{item.hour}}</p>
+        </div>
 
-
+        <div class="content-desc" *ngFor="let des of project">
+            <p class="notes">{{des.task.description}}</p>
+            <ng-template [ngIf]="!des.task.description">
+                <p class="no-notes">Não há nenhuma anotação neste projeto</p>
+            </ng-template>
+        </div>
+        
+      

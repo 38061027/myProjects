@@ -5,3 +5,24 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 }
+
+.content-desc{
+    border: 1px solid gray;
+    margin-top: 100px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-notes{
+    color: gray;
+    opacity: 0.4;
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+.notes{
+    font-weight: 300;
+    font-size: x-large;
+}

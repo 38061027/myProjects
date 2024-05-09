@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Hi </h2>
+
 <mat-dialog-content>
   <p>Qual o titulo da tarefa?</p>
 <div class="content-field">
@@ -16,6 +16,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial (click)="updateProject()">Ok</button>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial (click)="updateProject()" >Salvar</button>
 </mat-dialog-actions>

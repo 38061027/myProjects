@@ -56,7 +56,7 @@ id!:string
             title: el.title,
             date: el.date,
             hour: el.hour,
-            task: { 'task-title': this.title, 'description': this.description }
+            task: { 'tasktitle': this.title, 'description': this.description }
           };
           this.service.updateProject(projectUpdate, this.id).subscribe(
             res => console.log(res)
